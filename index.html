@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <html>
+
+   <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga asincrona de imagenes con javascript</title>
+    <style>
+      img{
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+   </head>
+   <body>
+    <img data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+     <!---Esta parte mostrara una imagen de cargando antes de mostrar la imagen solicitada IMPORTANTE: esta imagen se recomienta pese muy poco---->
+
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+    <img src="https://pixabay.com/get/50e4d0414c5ab10ff3d89960c62d3f781738dbe75659_640.jpg" data-src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png">
+   
+   <sript>
+   // este es el codigo que pospone la carga de la imagen 
+   var is = 0;
+var et = function() {
+    var img = document.getElementsByTagName('img');
+    if (is < img.length) {
+        var im = img[is];
+        var data = im.getAttribute('data-src');
+        im.setAttribute('src', data);
+        im.removeAttribute('data-src');
+        is++;
+    } else {
+        clearInterval(intervalo);
+    }
+}
+// el numero lo puedes cambiar por el tiempo de diferencia que quieras en una imagen y otra
+// cuenta en milesimas por lo que 1000 es un segundo
+var intervalo = setInterval(et, 200);
+   </script>
+   </body>
+</html>
