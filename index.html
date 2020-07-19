@@ -31,22 +31,22 @@
    
    <script>
    // este es el codigo que pospone la carga de la imagen 
-   var is = 0;
-var et = function() {
-    var img = document.getElementsByTagName('img');
-    if (is < img.length) {
-        var im = img[is];
-        var data = im.getAttribute('data-src');
-        im.setAttribute('src', data);
-        im.removeAttribute('data-src');
-        is++;
-    } else {
-        clearInterval(intervalo);
-    }
-}
+   const is = 0;
+   const load = ()=>{
+    const img = document.getElementsByTagName('img');
+      if (is < img.length) {
+       const im = img[is];
+       const data = im.getAttribute('data-src');
+       im.setAttribute('src', data);
+       im.removeAttribute('data-src');
+       is++;
+     } else {
+       clearInterval(intervalo);
+     }
+   }
 // el numero lo puedes cambiar por el tiempo de diferencia que quieras en una imagen y otra
 // cuenta en milesimas por lo que 1000 es un segundo
-var intervalo = setInterval(et, 200);
+   let intervalo = setInterval(et, 200);
    </script>
    </body>
 </html>
